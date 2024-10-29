@@ -7,7 +7,13 @@ const AppliedJobs = () => {
     useEffect(()=>{
         const storedJobsIds = getStoredJobApplication();
         if(jobs.length > 0){
-            const jobsApplied = jobs.filter(job =>)
+            const jobsApplied = [];
+            for(const id of storedJobsIds){
+                const job = jobs.find(job => job.id === id );
+                if(job){
+                    jobsApplied.push(job)
+                }
+            }
         }
     } ,[])
     return (
